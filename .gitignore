@@ -86,7 +86,8 @@ typings/
 .webpack/
 
 # Electron-Forge
-out/
+out/forcast-darwin-x64
 
 # Build
 release-builds/*
+!/out/make/
