@@ -1,9 +1,10 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, autoUpdater } = require('electron');
 const path = require('path');
-require('update-electron-app')({
-  repo: 'TheLifeofO/forecast-electron',
-  updateInterval: '5 minutes'
-})
+
+const server = 'forecast-electron-mo173wsfi.now.sh'
+const feed = `${server}/update/${process.platform}/${app.getVersion()}`
+
+autoUpdater.setFeedURL(feed)
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) { // eslint-disable-line global-require
